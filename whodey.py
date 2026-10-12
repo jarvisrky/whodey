@@ -1,3 +1,5 @@
+#For research and educational purposes only. Malicious behavior is strictly forbidden. Be a good person and enjoy.
+
 import socket
 import ipaddress
 from urllib.parse import urlparse
@@ -10,7 +12,10 @@ OSV_URL = "https://api.osv.dev/v1/vulns"
 DOH_URL = "https://dns.google/resolve"
 TIMEOUT = 10
 MAX_CVES = 5            # User can change number of CVES, 5 is max by default
- 
+
+
+
+
 # Common Vulnerable Ports w/functions
 RISKY_PORTS = {
     17:    "QOTD - legacy service, can be abused for DDoS amplification",
@@ -44,8 +49,7 @@ FINGERPRINT_HEADERS = {
 }
  
  
-#Helper
- 
+#Helper function 
 def rdap_entity_name(entities, role):
     """Find the name (vCard 'fn') of the first RDAP entity with the given role."""
     for ent in entities or []:
@@ -85,7 +89,7 @@ def whois_domain(host):
             ], domain
     return [f"  No WHOIS/RDAP record found for {host}."], fallback
  
-     ###Look up DNS records through Google's DNS-over-HTTPS JSON API.
+     ###Looks up DNS records via DNS-over-HTTPS JSON API.
     ## Returns list of record strings, or None as applicable"""
 
 def dns_records(name, record_type):
@@ -142,7 +146,7 @@ def email_spoof_check(domain):
             spf_rating += "  [multiple SPF records - invalid config]"
     lines.append(f"  SPF verdict:  {spf_rating}")
  
-    # DMARC: what receivers should do with mail that fails SPF/DKIM checks
+    # DMARC: what rx should do with mail that fails SPF/DKIM checks
     dmarc = [t for t in dmarc_txt if t.lower().startswith("v=dmarc1")]
     if not dmarc:
         policy, pct = None, 100
@@ -250,7 +254,7 @@ def list_or_none(items, limit=10):
     return shown
  
  
-# ---------- main homework function ----------
+# CSEC380 Req
  
 def get_public_data(api_url, search_term):
     """api_url = Shodan InternetDB base URL, search_term = the URL to investigate."""
