@@ -95,7 +95,7 @@ def animate_art(seconds=8):
     if not sys.stdout.isatty():
         print(frames[0])
         return
-    height = len(ART) // 2
+    height = len(MEME) // 2
     # Reserve space, then return to its top so frames do not scroll.
     sys.stdout.write("\n" * height + f"\033[{height}A\r\0337\033[?25l")
     sys.stdout.flush()
