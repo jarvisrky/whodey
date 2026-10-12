@@ -1,6 +1,9 @@
 import time
 import sys
 
+PALETTE = [(255, 255, 255), (254, 254, 250), (226, 222, 199), (131, 173, 168), (89, 177, 189), (86, 167, 179), (66, 169, 183), (62, 163, 178), (189, 145, 109), (93, 150, 155), (68, 157, 171), (67, 145, 159), (53, 157, 173), (53, 147, 164), (54, 138, 155), (44, 137, 154), (185, 120, 82), (171, 116, 84), (176, 105, 68), (165, 103, 72), (188, 90, 31), (182, 83, 23), (164, 96, 63), (162, 89, 53), (149, 103, 74), (149, 90, 61), (152, 84, 52), (143, 83, 54), (107, 105, 96), (114, 84, 69), (46, 129, 146), (56, 106, 116), (165, 76, 28), (158, 67, 19), (142, 76, 47), (140, 67, 33), (123, 74, 51), (122, 65, 39), (101, 73, 61), (100, 64, 49), (140, 55, 20), (124, 53, 25), (103, 57, 38), (103, 50, 27), (124, 39, 14), (124, 27, 10), (101, 38, 15), (99, 24, 9), (82, 62, 57), (62, 62, 62), (75, 49, 41), (56, 48, 53), (78, 37, 19), (62, 39, 37), (51, 39, 45), (41, 36, 41), (69, 26, 12), (42, 25, 24), (73, 17, 7), (46, 18, 10), (29, 19, 17), (18, 11, 11), (16, 7, 9), (11, 5, 8)]
+SYMBOLS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz+-"
+MEME = """
 IZqquqqqhqyyyyyxiWZieeeeeiilbGJbdddaPOJHGGOaJJ8GRRNRoyoP8GGWwlZQNQhuxxxkZffeeXWK
 WZuuuquqqkvyyyyxeWeZWWeeefkuuPJddddcTTOHHJPTdcTagaParzvrP8IKflfbZYfuqquqfffZfeeW
 XWkqxvyxqkqyyyxuXWWZZfiikklkuqbddddccTTOOPPTTTdgogactzvprGGWNiYZeNYfZbukffhhffiX
@@ -59,14 +62,14 @@ ttppsnsstttttvtpnrxn9mbYRPMMJIGGIIJMMJIIIJJMMNYYYbggsV7AEECDU9VnnnVnnnn82223npns
 ttsssnppptttvvspnvxyBVobYRPMMJGGGHHHHHJJJJMMQYYYbggrnUUUUUUFU9VnVVVVVSSSSSSntyts
 """.strip().splitlines()
 
-# Tiny eye shapes inside the existing glasses. Only pupils move.
+
 EYES = ((39, 20), (47, 20))
 EYE_WHITE = (221, 211, 188)
 PUPIL = (28, 20, 17)
 
 
 def make_frame(glance=0):
-    pixels = [[PALETTE[SYMBOLS.index(c)] for c in row] for row in ART]
+    pixels = [[PALETTE[SYMBOLS.index(c)] for c in row] for row in MEME]
     for x, y in EYES:
         for dx in range(1, 4):
             pixels[y][x + dx] = EYE_WHITE
@@ -114,6 +117,8 @@ def animate_art(seconds=8):
     finally:
         sys.stdout.write("\0338" + frames[0] + "\033[0m\033[?25h\n")
         sys.stdout.flush()
-
+        
+if __name__ == "__whodey.py__":
+    animate_art()
 
 animate_art()
