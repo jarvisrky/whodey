@@ -110,7 +110,7 @@ def dns_records(name, record_type):
  
 
 def parse_tags(record):
-  """Turn 'v=DMARC1; p=reject; pct=100' into {'v': 'DMARC1', 'p': 'reject', 'pct': '100'}."""
+ """Turn 'v=DMARC1; p=reject; pct=100' into {'v': 'DMARC1', 'p': 'reject', 'pct': '100'}."""
     tags = {}
     for part in record.split(";"):
         if "=" in part:
