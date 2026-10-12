@@ -5,7 +5,6 @@ import ipaddress
 from urllib.parse import urlparse
 import requests
 from loadscreen.py import animate_art
-animate_art(seconds=8)
 
 
  
