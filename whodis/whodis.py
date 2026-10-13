@@ -351,7 +351,7 @@ def get_public_data(api_url, search_term):
 #leave room for suggested payload or possibly pipe to additional script.
 
 
-target_url = input("Enter a URL to investigate (e.g. http://scanme.nmap.org): ")
+target_url = input("Enter a URL to look into: ")
 
 print(get_public_data("https://internetdb.shodan.io", target_url))
  
