@@ -75,6 +75,8 @@ def print_art():
             br, bg, bb = PALETTE[SYMBOLS.index(bottom)]
             line += f"\033[38;2;{r};{g};{b}m\033[48;2;{br};{bg};{bb}m▀"
         print(line + "\033[0m")
+if __name__ == "__main__":
+    animate_art()
 
 print_art()
 
