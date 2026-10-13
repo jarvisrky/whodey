@@ -347,6 +347,11 @@ def get_public_data(api_url, search_term):
  
     return "\n".join(report)
  
+    if __name__ == "__main__":
+    loadscreen.animate_art()
+    target_url = input("Enter a URL to investigate (e.g. http://scanme.nmap.org): ")
+    print(get_public_data("https://internetdb.shodan.io", target_url))
+ 
 #leave room for suggested payload or possibly pipe to additional script.
 
 
