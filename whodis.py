@@ -4,7 +4,7 @@ import socket
 import ipaddress
 from urllib.parse import urlparse
 import requests
-from loadscreen.py import print_art
+import print_art
 
 
  
